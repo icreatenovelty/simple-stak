@@ -8,6 +8,8 @@ Get help from discord
 
 2. a. try orthographic camera
       drei again
+
+3. a. zoom in on block when it is clicked on
       
 
 

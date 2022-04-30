@@ -1,6 +1,8 @@
 import React from 'react'
 import { Canvas, useFrame } from 'react-three-fiber'
 import TaskBox from './TaskBox'
+import { Text } from '@react-three/drei'
+
 
 function Stak({ tasks }) {
   return (
