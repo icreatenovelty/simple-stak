@@ -59,32 +59,7 @@ function Plane() {
   )
 }
 
-// why are we getting unhideTextInstance Error when first starting or reloading the server
 function App() {
-  useEffect(() => {
-    renderer.forceContextRestore()
-    console.log('useEffect called')
-    setTimeout(() => {
-      console.log('force context restore')
-      renderer.forceContextRestore()
-    }, 8000)
-  }, [])
-
-  // trying this from the internet
-  // function restoreContext() {
-  //   const canvas = renderer.domElement
-  //   canvas.addEventListener(
-  //     'Context Lost',
-  //     function (event) {
-  //       console.log('force context restore')
-  //       event.preventDefault()
-  //       setTimeout(function () {
-  //         renderer.forceContextRestore()
-  //       }, 1)
-  //     },
-  //     false
-  //   )
-  // }
 
   const [stak, updateStak] = useState(firstStak)
   const [nextColor, updateNextColor] = useState(3)
@@ -102,23 +77,24 @@ function App() {
 
   const removeTop = () => {
     updateStak(stak.slice(0, -1))
-    /* if (stak.length > 0 && nextColor === 0) {
+    if (stak.length > 0 && nextColor === 0) {
       updateNextColor(colors.length - 1)
     } else if (stak.length === 0) {
       updateNextColor(0)
     } else {
      updateNextColor((nextColor - 1) % colors.length)
-    } */
+    }
   }
 
   const camera1 = { fov: 45, near: 0.1, far: 1000, position: [5, 5, 5] }
 
-  // camera1.position = [5,5,5] n
+  // does not work to update camera position:
+  // camera1.position = [5,5,5]
 
   const moveCamera = () => {
     camera1.position = [0, 0, 0]
   }
-
+  
   return (
     <>
       <p style={{ color: 'grey' }}>this my stak:</p>
